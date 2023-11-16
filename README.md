@@ -1,21 +1,24 @@
 # InferTypecheckIssue
 
-**TODO: Add description**
+Dialyzer fails to typecheck `infer` functions:
 
-## Installation
+```shell-session
+$ mix dialyzer
+Finding suitable PLTs
+Checking PLT...
+[:compiler, :elixir, :infer, :infer_typecheck_issue, :kernel, :logger, :stdlib]
+PLT is up to date!
+No :ignore_warnings opt specified in mix.exs and default does not exist.
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `infer_typecheck_issue` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:infer_typecheck_issue, "~> 0.1.0"}
-  ]
-end
+[...snip...]
+Total errors: 2, Skipped: 0, Unnecessary Skips: 0
+done in 0m0.69s
+lib/infer_typecheck_issue.ex:2:unknown_function
+Function Infer.get/1 does not exist.
+________________________________________________________________________________
+lib/infer_typecheck_issue.ex:3:unknown_function
+Function Infer.get_from_path/1 does not exist.
+________________________________________________________________________________
+done (warnings were emitted)
+Halting VM with exit status 2
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/infer_typecheck_issue>.
-
